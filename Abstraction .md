@@ -29,28 +29,47 @@ To create an **abstract class** named `Shape` with an **abstract method** `calcu
 ---
 
 ## 💻 Program
-from abc import ABC,abstractmethod
+
+from abc import ABC, abstractmethod
+import math
+
+# Abstract Class
 class Shape(ABC):
+
     @abstractmethod
     def calculate_area(self):
         pass
+
+# Rectangle Class
 class Rectangle(Shape):
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+
     def calculate_area(self):
-        print("Program to find area of rectangle is executing.....")
-        self.length = int(input("Enter The Length Of The Rectangle : "))
-        self.breadth = int(input("Enter The Breadth Of The Rectangle : "))
-        self.area = self.length*self.breadth
-        print(f"Area of The Rectangle is {self.area:.2f} sq.units")
+        return self.length * self.breadth
+
+# Circle Class
 class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
     def calculate_area(self):
-        print("\nProgram to find area of circle is executing.....")
-        self.radius = int(input("Enter The Radius Of The Circle : "))
-        self.area = 3.14*self.radius*self.radius
-        print(f"Area of The Circle is {self.area:.2f} sq.units")
-rec = Rectangle()
-rec.calculate_area()
-cir = Circle()
-cir.calculate_area()
+        return math.pi * self.radius * self.radius
+
+
+# Input for Rectangle
+length = float(input("Enter Length of Rectangle: "))
+breadth = float(input("Enter Breadth of Rectangle: "))
+
+rect = Rectangle(length, breadth)
+print("Area of Rectangle =", rect.calculate_area())
+
+# Input for Circle
+radius = float(input("Enter Radius of Circle: "))
+
+cir = Circle(radius)
+print("Area of Circle =", cir.calculate_area())
 ## Output
 <img width="1918" height="912" alt="image" src="https://github.com/user-attachments/assets/3b6da926-f7fc-4e98-8e3d-1ef04e3908ab" />
 
