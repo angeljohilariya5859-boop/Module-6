@@ -24,25 +24,31 @@ To implement **Encapsulation** in Python by defining a class `Rectangle` with **
 
 ## 💻 Program
 class Rectangle:
-    def __init__(self):
-        self.__length = int(input("Enter a length of the rectangle : "))
-        self.__breadth = int(input("Enter a breadth of the rectangle : "))
-        self.area = self.__length * self.__breadth
-        print(f"Length : {self.__length} sq.units")
-        print(f"Breadth : {self.__breadth} sq.units")
-        print(f"Area of the Rectangle : {self.area} sq.units")
-call = Rectangle()
+    # Constructor
+    def __init__(self, length, breadth):
+        self.__length = length      # Private member
+        self.__breadth = breadth    # Private member
 
-# calling the private member outside the class
-print("\nCalling the private members outside the class.....")
-try :
-   print("Length of the rectangle : ",call.__length,"sq.units")
-except :
-   print("AttributeError: 'Rectangle' object has no attribute '__length'")
-try :
-   print("Breadth of the rectangle : ",call.__breadth,"sq.units")
-except :
-   print("AttributeError: 'Rectangle' object has no attribute '__breadth'")
+    # Method to display details
+    def display(self):
+        print("Length :", self.__length)
+        print("Breadth :", self.__breadth)
+
+    # Method to calculate area
+    def area(self):
+        return self.__length * self.__breadth
+
+
+# Input
+length = float(input("Enter Length: "))
+breadth = float(input("Enter Breadth: "))
+
+# Object Creation
+r = Rectangle(length, breadth)
+
+# Display Details
+r.display()
+print("Area =", r.area())
    
 ## Output
 <img width="1917" height="912" alt="image" src="https://github.com/user-attachments/assets/6aa01bc5-5699-41bd-a6b9-77f312f3652e" />
